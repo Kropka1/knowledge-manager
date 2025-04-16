@@ -1,4 +1,3 @@
-# ui/category_window.py
 from PyQt6.QtGui import QIcon
 from PyQt6.QtWidgets import (
     QMainWindow, QWidget, QVBoxLayout, QTreeWidget, QTreeWidgetItem,
@@ -81,6 +80,17 @@ class CategoryWindow(QMainWindow):
         self.buttons_layout.addLayout(btn_layout)
         self.delete_btn.setIcon(QIcon.fromTheme("edit-delete"))
         self.edit_btn.setIcon(QIcon.fromTheme("document-edit"))
+
+        self.tree_view_btn = QPushButton("Посмотреть схему")
+        self.tree_view_btn.setIcon(QIcon.fromTheme("view-tree"))
+        self.tree_view_btn.clicked.connect(self.show_tree_view)
+
+        btn_layout.addWidget(self.tree_view_btn)
+
+    def show_tree_view(self):
+        from ui.tree_view_window import TreeViewWindow
+        self.tree_window = TreeViewWindow(self.category_id, self)
+        self.tree_window.show()
 
     def load_subcategories(self):
         self.tree.clear()

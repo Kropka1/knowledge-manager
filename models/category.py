@@ -1,4 +1,3 @@
-# models/category.py
 from db.database import get_connection
 
 

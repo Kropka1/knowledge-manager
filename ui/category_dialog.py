@@ -1,4 +1,3 @@
-# ui/category_dialog.py
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import (
     QDialog, QVBoxLayout, QLabel, QLineEdit, QTextEdit,
